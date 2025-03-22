@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+
+  <style>
+    /* =========================================
+       Root Variables
+    ========================================= */
+    :root {
+      --primary-color: #4facfe;
+      --secondary-color: #00f2fe;
+      --text-dark: #333;
+      --text-light: #666;
+      --background-light: #f5f7fa;
+      --white: #fff;
+      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --border-radius: 8px;
+      --transition: all 0.3s ease;
+    }
+
+    /* =========================================
+       Global Styles
+    ========================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================================
+       Navigation
+    ========================================= */
+    nav {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      padding: 15px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .current {
+      color: var(--primary-color) !important;
+      position: relative;
+    }
+
+    .current::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary-color);
+      border-radius: 1px;
+    }
+
+    /* =========================================
+       Header (Hero Section)
+    ========================================= */
+    header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMzUpIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+      opacity: 0.5;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =========================================
+       Contact Section
+    ========================================= */
+    .contact-section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Contact Info Box */
+    .contact-info {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: var(--text-dark);
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .contact-info h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 1.5px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .info-icon i {
+      color: var(--white);
+      font-size: 1.2rem;
+    }
+
+    .info-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: var(--text-dark);
+    }
+
+    .info-content p,
+    .info-content a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .info-content a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Contact Form Box */
+    .contact-form {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-form h3 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      color: var(--text-dark);
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .contact-form h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 1.5px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.2);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: var(--white);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* =========================================
+       Footer
+    ========================================= */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer .social-links {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .footer .social-links a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer .social-links a:hover {
+      color: #0077b5;
+    }
+
+    .footer .copyright {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    /* =========================================
+       Responsive Media Queries
+    ========================================= */
+    @media (max-width: 992px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      .nav-container {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        margin-top: 15px;
+      }
+
+      .nav-links li {
+        margin: 0 15px;
+      }
+
+      .contact-info,
+      .contact-form {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      header p {
+        font-size: 0.9rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links li {
+        margin: 5px 10px;
+      }
+
+      .info-item {
+        flex-direction: column;
+      }
+
+      .info-icon {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">Nikhil Bharti</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="contact.html" class="current">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <h1>Get In Touch</h1>
+      <p>Have a question or want to connect? Feel free to reach out!</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section class="contact-section">
+      <div class="section-title">
+        <h2>Contact Information</h2>
+      </div>
+
+      <div class="contact-container">
+        <!-- Contact Info Box -->
+        <div class="contact-info">
+          <h3>My Details</h3>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-content">
+              <h4>Phone</h4>
+              <a href="tel:+919816790061">+91 9816790061</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-content">
+              <h4>Email</h4>
+              <a href="mailto:nikhilbharti594@gmail.com">nikhilbharti594@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <h4>Address</h4>
+              <p>Village: Bantera, PO: Manjhiar</p>
+              <p>Tehsil: Nadaun, Himachal Pradesh</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-content">
+              <h4>Available Hours</h4>
+              <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+              <p>Saturday: 10:00 AM - 4:00 PM</p>
+            </div>
+          </div>
+        </div>
+        <!-- End Contact Info Box -->
+
+        <!-- Contact Form Box -->
+        <div class="contact-form">
+          <h3>Send a Message</h3>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="form-control"
+                placeholder="Subject"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-control"
+                placeholder="Write your message..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+        <!-- End Contact Form Box -->
+      </div>
+    </section>
+  </div>
+
+  <!-- JavaScript (Optional) -->
+  <script>
+    // Form submission handling
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! I will get back to you soon.');
+      this.reset();
+    });
+  </script>
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/nikhil-bharti-063b9a225/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/Nikhilbharti284" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61570853281295" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/ni.kh.il__18/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:nikhilbharti594@gmail.com" aria-label="Gmail">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Nikhil Bharti. All rights reserved.
+    </p>
+  </footer>
+</body>
+</html>

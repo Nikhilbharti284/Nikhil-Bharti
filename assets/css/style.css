@@ -1,0 +1,302 @@
+/* GLOBAL RESETS & TYPOGRAPHY */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* HEADER SECTION */
+.header {
+  background: url("../images/hero-bg.jpg") no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 1rem 2rem;
+  position: relative;
+  overflow: hidden;
+  animation: slideBackground 30s ease-in-out infinite;
+}
+
+@keyframes slideBackground {
+  0% { background-position: center 0%; }
+  100% { background-position: center 100%; }
+}
+
+/* DARK OVERLAY */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.navbar,
+.hero {
+  position: relative;
+  z-index: 2;
+}
+
+/* Base .nav-links styling */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Hide nav-links on mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;           /* hide by default on small screens */
+    flex-direction: column;
+    background-color: #333;  /* example background */
+    position: absolute;      /* so it can pop over content */
+    top: 70px;               /* adjust to your header height */
+    right: 20px;             /* position near the hamburger */
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
+  /* When .active is toggled, show the nav-links */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Also ensure .hamburger is visible on mobile */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+/* Hide hamburger icon on larger screens (optional) */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* CTA BUTTONS */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.cta-button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  border: none;
+  background: #ff6600;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #ff8533;
+}
+
+/* PROJECTS SECTION */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background: #f5f5f5;
+}
+
+.project-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  margin: 1rem 0;
+  color: #004aad;
+  font-size: 1.25rem;
+}
+
+/* SKILLS SECTION WRAPPER */
+.skills-section {
+  padding: 2rem;
+  background: #f4f4f4; /* Light background for contrast */
+  text-align: center;
+}
+
+/* Section Title & Subtitle (Optional) */
+.skills-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.skills-section p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* SKILLS GRID CONTAINER */
+.skills-container {
+  display: grid;
+  /* Creates responsive columns that expand/shrink to fit */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: 1200px; /* Adjust if you want a wider or narrower max width */
+}
+
+/* INDIVIDUAL SKILL CARD */
+.skill-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  color: #333;
+  text-align: left; /* Left-align content inside the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for a subtle lift */
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Skill Card Heading */
+.skill-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #6c63ff; /* Change to your preferred heading color */
+}
+
+/* Remove default bullets and add horizontal dividers */
+.skill-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-card li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Remove the bottom border for the last item */
+.skill-card li:last-child {
+  border-bottom: none;
+}
+
+/* OPTIONAL: Fade-in Animation for Each Card */
+.skill-card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+/* Staggered delay (only if you want each card to appear sequentially) */
+.skill-card:nth-child(1) { animation-delay: 0.1s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+.skill-card:nth-child(4) { animation-delay: 0.4s; }
+.skill-card:nth-child(5) { animation-delay: 0.5s; }
+.skill-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FOOTER */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.social-links {
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0077b5;
+}
+
+.copyright {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .projects {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikhil Bharti - Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- FontAwesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Inline CSS for Character Animation -->
+  <style>
+
+
+/* NAVBAR BASE */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2; /* Ensure above hero background if needed */
+  padding: 1rem; /* Adjust as you like */
+}
+
+.nav-logo {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* HAMBURGER ICON (Desktop Hidden) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff; /* Adjust color if your background is dark or light */
+}
+
+/* NAV LINKS (Desktop View) */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Search Bar (Desktop View) */
+.search-bar input {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  transition: width 0.3s ease;
+}
+
+/* Expand input on focus */
+.search-bar input:focus {
+  width: 200px;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  /* HAMBURGER (Show on Mobile) */
+  .hamburger {
+    display: block;
+    z-index: 10000;
+  }
+
+  /* HIDE NAV LINKS BY DEFAULT (MOBILE) */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;             /* Adjust as needed */
+    height: 100vh;          /* Full screen height */
+    background-color: #333; /* Dark background for the slide-in menu */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 1.5rem;
+    transform: translateX(100%); /* Start off-screen to the right */
+    transition: transform 0.3s ease-in-out;
+    z-index: 9999;
+  }
+
+  .nav-links a {
+    color: #fff;
+    font-size: 1.1rem;
+  }
+
+  /* Search bar styling in mobile menu */
+  .search-bar input {
+    width: 100%; 
+    margin-bottom: 1rem;
+  }
+
+  /* TOGGLE CLASS */
+  .nav-links.active {
+    transform: translateX(0); /* Slide in from the right */
+  }
+}
+
+/* Hide the hamburger on larger screens */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+    /* Characters start hidden and slightly shifted up */
+    #animated-heading span,
+    #animated-paragraph span {
+      opacity: 0;
+      transform: translateY(-10px);
+      display: inline-block; /* so transform can work */
+      transition: all 0.3s ease;
+    }
+
+    /* When .fade-in is added, the character becomes visible */
+    #animated-heading span.fade-in,
+    #animated-paragraph span.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom CSS Styles */
+    :root {
+      --primary: #2A5C82;
+      --secondary: #5BA4E6;
+      --accent: #FF6B6B;
+    }
+
+    /* Animation Enhancements */
+    .animate__animated {
+      --animate-duration: 0.8s;
+    }
+
+    /* Telemedicine Section Enhancements */
+    #telemedicine {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    #telemedicine img {
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    #telemedicine img:hover {
+      transform: scale(1.02);
+    }
+
+    #telemedicine li {
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Appointment Cards */
+    .card {
+      transition: all 0.3s ease;
+      border: none;
+      border-radius: 15px;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title i {
+      font-size: 1.5rem;
+      vertical-align: middle;
+    }
+
+    /* Health Monitoring */
+    #healthMonitoring {
+      background: linear-gradient(45deg, #E8F4FD 0%, #F9FBFD 100%);
+    }
+
+    #healthMonitoring .border {
+      border: none !important;
+      background: white;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    #healthMonitoring .border:hover {
+      box-shadow: 0 8px 16px rgba(42, 92, 130, 0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #telemedicine .row {
+        flex-direction: column-reverse;
+      }
+
+      #healthMonitoring .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Modal Customization */
+    .modal-content {
+      border-radius: 15px;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    /* Chart Containers */
+    canvas {
+      max-width: 100%;
+      height: auto !important;
+    }
+    @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation Apply */
+.animated-section {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.animated-image {
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.animated-text {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply Animations */
+.animated-section {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Section styling */
+#cancer-initiative {
+  background-color: #eae8e8; /* light pink background */
+  color: #1183e0;            /* dark pink text */
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+#cancer-initiative h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Project card styling */
+.cancer-section {
+  background-color: #ffffff;
+  border: 1px solid #f8bbd0;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cancer-section h3 {
+  margin-top: 0;
+}
+
+/* Image styling with hover zoom effect */
+.cancer-section img {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 20px auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cancer-section img:hover {
+  transform: scale(1.05);
+}
+
+
+/* Apply Animations */
+.animated-section {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.image-container img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header" id="home">
+    <nav class="navbar">
+      <h1 class="nav-logo">Nikhil Bharti</h1>
+
+      <!-- Hamburger Menu Icon -->
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Nav Links -->
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+ 
+        <a href="projects.html">Projects</a>
+      
+        <a href="Achievements.html">Achievements</a>
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." />
+        </div>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    
+    <div class="hero" style="color: rgb(19, 53, 16); text-align: center; padding: 2rem;">
+      <h1 id="animated-heading">Welcome to My Website</h1>
+      <p id="animated-paragraph">Computer Science Student | Developer | Tech Enthusiast</p>
+    </div>
+    
+      </div>
+    </header>
+    
+
+  <!-- PROJECTS SECTION -->
+  <section class="projects" id="projects">
+    <div class="project-card">
+      <i class="fas fa-code fa-3x"></i>
+      <h3>Healthcare Website</h3>
+      <p>Developed a responsive healthcare website with appointment booking and user authentication.</p>
+      <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Flask, MongoDB</p>
+    </div>
+
+    <div class="project-card">
+      <i class="fas fa-brain fa-3x"></i>
+      <h3>Machine Learning Project</h3>
+      <p>Built a predictive model using TensorFlow and Scikit-learn for data analysis.</p>
+      <p><strong>Tech Stack:</strong> Python, TensorFlow, Pandas</p>
+    </div>
+
+    <div class="project-card">
+      <i class="fas fa-mobile-alt fa-3x"></i>
+      <h3>Mobile App Prototype</h3>
+      <p>Designed and prototyped a mobile app for task management using Figma.</p>
+      <p><strong>Tools:</strong> Figma, Adobe XD</p>
+    </div>
+  </section>
+
+
+  <!-- India Healthcare Issues (Static Data) -->
+<!-- India Healthcare Issues (Count-Up Animation) -->
+<section id="indiaHealthcare" style="background-color: #e3f2fd; padding: 60px 0;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2
+      style="
+        text-align: center;
+        color: #0d6efd;
+        font-weight: bold;
+        margin-bottom: 20px;
+        animation: fadeInDown 1s;
+      "
+    >
+      India Healthcare: Key Statistics
+    </h2>
+    <p
+      style="
+        text-align: center;
+        color: #495057;
+        margin-bottom: 40px;
+        animation: fadeInUp 1s;
+      "
+    >
+      (Static Data - Count-Up Animation)
+    </p>
+
+    <!-- Data Display Container -->
+    <div
+      id="healthStats"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        animation: fadeInUp 1.2s;
+      "
+    >
+      <!-- Card 1: Doctors -->
+      <div
+        style="
+          background: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          flex: 1 1 200px;
+          max-width: 250px;
+          text-align: center;
+        "
+      >
+        <h4 style="color: #0d6efd; margin-bottom: 10px;">Registered Doctors</h4>
+        <!-- Use an ID for the count-up script -->
+        <p id="doctorsCount" style="color: #495057; font-size: 1.1rem; font-weight: bold;">
+          0
+        </p>
+      </div>
+
+      <!-- Card 2: Nurses -->
+      <div
+        style="
+          background: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          flex: 1 1 200px;
+          max-width: 250px;
+          text-align: center;
+        "
+      >
+        <h4 style="color: #0d6efd; margin-bottom: 10px;">Registered Nurses</h4>
+        <p id="nursesCount" style="color: #495057; font-size: 1.1rem; font-weight: bold;">
+          0
+        </p>
+      </div>
+
+      <!-- Card 3: Hospital Beds -->
+      <div
+        style="
+          background: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          flex: 1 1 200px;
+          max-width: 250px;
+          text-align: center;
+        "
+      >
+        <h4 style="color: #0d6efd; margin-bottom: 10px;">Hospital Beds</h4>
+        <p id="bedsCount" style="color: #495057; font-size: 1.1rem; font-weight: bold;">
+          0
+        </p>
+      </div>
+
+      <!-- Card 4: Rural Health Centers -->
+      <div
+        style="
+          background: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          flex: 1 1 200px;
+          max-width: 250px;
+          text-align: center;
+        "
+      >
+        <h4 style="color: #0d6efd; margin-bottom: 10px;">Rural Health Centers</h4>
+        <p id="ruralCount" style="color: #495057; font-size: 1.1rem; font-weight: bold;">
+          0
+        </p>
+      </div>
+
+      <!-- Card 5: Healthcare Patent Cases -->
+      <div
+        style="
+          background: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          flex: 1 1 200px;
+          max-width: 250px;
+          text-align: center;
+        "
+      >
+        <h4 style="color: #0d6efd; margin-bottom: 10px;">Healthcare Patent Cases</h4>
+        <p id="patentCount" style="color: #495057; font-size: 1.1rem; font-weight: bold;">
+          0
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function animateValue(elementId, start, end, duration) {
+    const obj = document.getElementById(elementId);
+    let current = start;
+    const step = (end - start) / (duration / 20); // Adjust step based on total duration
+
+    function updateNumber() {
+      current += step;
+      if (current >= end) {
+        obj.textContent = end.toLocaleString();
+      } else {
+        obj.textContent = Math.floor(current).toLocaleString();
+        requestAnimationFrame(updateNumber);
+      }
+    }
+    
+    requestAnimationFrame(updateNumber);
+  }
+
+  // Load all numbers within 5 seconds
+  window.addEventListener('DOMContentLoaded', () => {
+    const totalDuration = 5000; // 5 seconds
+    animateValue('doctorsCount', 0, 1200000, totalDuration);
+    animateValue('nursesCount', 0, 2000000, totalDuration);
+    animateValue('bedsCount', 0, 1900000, totalDuration);
+    animateValue('ruralCount', 0, 25000, totalDuration);
+    animateValue('patentCount', 0, 45000, totalDuration);
+  });
+</script>
+
+<!-- India Healthcare Issues Section -->
+<!-- India Healthcare Issues (Static Data) -->
+
+<!-- COVID-19 Section -->
+<section id="covidInfo" style="background-color: #f8f9fa; padding: 60px 0;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; color: #dc3545; font-weight: bold; margin-bottom: 30px;">
+      COVID-19 Awareness
+    </h2>
+    <p style="text-align: center; color: #6c757d; margin-bottom: 40px;">
+      Stay Safe, Stay Healthy
+    </p>
+    
+    <div style="display: flex; flex-wrap: wrap; align-items: center;">
+      <!-- COVID Image -->
+      <div style="flex: 1; min-width: 300px; margin-bottom: 20px; text-align: center;">
+        <img
+          src="https://cdn.dribbble.com/users/1734000/screenshots/11165398/media/96ed06f33f696eaabd5efcd79b31f5bf.gif"
+          alt="COVID-19 Awareness"
+          style="
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.7s ease, opacity 0.7s ease;
+          "
+          onload="this.style.opacity='1'; this.style.transform='translateY(0)';"
+          onmouseover="this.style.transform='scale(1.05)';"
+          onmouseout="this.style.transform='scale(1)';"
+        />
+      </div>
+
+      <!-- COVID Information -->
+      <div style="flex: 1; min-width: 300px; padding-left: 20px;">
+        <h3 style="color: #dc3545; font-weight: bold;">Protect Yourself and Others</h3>
+        <p style="color: #6c757d;">
+          COVID-19 is a contagious disease caused by the coronavirus. Taking preventive measures can significantly reduce the risk of infection and spread.
+        </p>
+        <ul style="list-style: none; padding: 0; color: #6c757d;">
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #dc3545; margin-right: 10px;"></i>Wear a mask in crowded places.
+          </li>
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #dc3545; margin-right: 10px;"></i>Maintain social distancing (6 feet).
+          </li>
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #dc3545; margin-right: 10px;"></i>Wash hands regularly with soap and water.
+          </li>
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #dc3545; margin-right: 10px;"></i>Get vaccinated to protect yourself and others.
+          </li>
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #dc3545; margin-right: 10px;"></i>Stay home if you feel unwell or have symptoms.
+          </li>
+        </ul>
+        <a
+          href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019"
+          style="background-color: #dc3545; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 20px;"
+        >
+          Learn More <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cancer Awareness Section -->
+<section id="cancerInfo" style="background-color: #f8f9fa; padding: 60px 0;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 style="text-align: center; color: #d19630; font-weight: bold; margin-bottom: 30px;">
+      Cancer Awareness
+    </h2>
+    <p style="text-align: center; color: #6c757d; margin-bottom: 40px;">
+      Early Detection Saves Lives
+    </p>
+    
+    <div style="display: flex; flex-wrap: wrap; align-items: center;">
+      <!-- Cancer Awareness Image -->
+      <div style="flex: 1; min-width: 300px; margin-bottom: 20px; text-align: center;">
+        <img
+          src="https://i.gifer.com/4i5T.gif"
+          alt="Cancer Awareness"
+          style="
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.7s ease, opacity 0.7s ease;
+          "
+          onload="this.style.opacity='1'; this.style.transform='translateY(0)';"
+          onmouseover="this.style.transform='scale(1.05)';"
+          onmouseout="this.style.transform='scale(1)';"
+        />
+      </div>
+
+      <!-- Cancer Information -->
+      <div style="flex: 1; min-width: 300px; padding-left: 20px;">
+        <h3 style="color: #d7861d; font-weight: bold;">Stay Informed, Stay Healthy</h3>
+        <p style="color: #6c757d;">
+          Cancer is a group of diseases characterized by uncontrolled cell growth. Early diagnosis and preventive measures can help improve survival rates.
+        </p>
+        <ul style="list-style: none; padding: 0; color: #6c757d;">
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #b97e19; margin-right: 10px;"></i>Go for regular health screenings.
+          </li>
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #b98f1b; margin-right: 10px;"></i>Maintain a healthy diet and exercise regularly.
+          </li>
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #d09520; margin-right: 10px;"></i>Avoid tobacco and limit alcohol consumption.
+          </li>
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #daa317; margin-right: 10px;"></i>Protect yourself from harmful UV rays.
+          </li>
+          <li style="padding: 10px 0;">
+            <i class="fas fa-check-circle" style="color: #e1b825; margin-right: 10px;"></i>Get vaccinated for HPV and Hepatitis B.
+          </li>
+        </ul>
+        <a
+          href="https://www.cancer.org/"
+          style="background-color: #cc8023; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 20px;"
+        >
+          Learn More <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Health Emergency Section -->
+<section id="healthEmergency" style="background-color: #e3f2fd; padding: 60px 0;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+    
+    <h2 style="color: #0d6efd; font-weight: bold; margin-bottom: 30px;">
+      Health Emergency Awareness
+    </h2>
+    <p style="color: #495057; margin-bottom: 40px;">
+      Stay Prepared, Stay Safe
+    </p>
+    
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around;">
+      
+      <!-- Image 1 - First Aid -->
+      <div style="flex: 1; min-width: 300px; margin-bottom: 20px;">
+        <img 
+          src="https://media.licdn.com/dms/image/v2/C4D22AQEZNydhBSYdAw/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1571326129835?e=2147483647&v=beta&t=FPZmhzVmhrVu9OapNeso7OYWp7W5zZC28dWCfF77GY0"
+          alt="First Aid Awareness"
+          style="
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.7s ease, opacity 0.7s ease;
+          "
+          onload="this.style.opacity='1'; this.style.transform='translateY(0)';"
+          onmouseover="this.style.transform='scale(1.05)';"
+          onmouseout="this.style.transform='scale(1)';"
+        />
+      </div>
+
+      <!-- Emergency Info -->
+      <div style="flex: 1; min-width: 300px; padding-left: 20px; text-align: left;">
+        <h3 style="color: #0d6efd; font-weight: bold;">Know What To Do</h3>
+        <p style="color: #495057;">
+          Health emergencies can happen anytime. Knowing how to respond can save lives.
+        </p>
+        <ul style="list-style: none; padding: 0; color: #495057;">
+          <li><i class="fas fa-check-circle" style="color: #0d6efd; margin-right: 10px;"></i> Learn basic first aid.</li>
+          <li><i class="fas fa-check-circle" style="color: #0d6efd; margin-right: 10px;"></i> Keep emergency contacts handy.</li>
+          <li><i class="fas fa-check-circle" style="color: #0d6efd; margin-right: 10px;"></i> Know CPR techniques.</li>
+          <li><i class="fas fa-check-circle" style="color: #0d6efd; margin-right: 10px;"></i> Stay calm in crisis situations.</li>
+        </ul>
+        <a href="https://www.redcross.org/" style="background-color: #0d6efd; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 20px;">
+          Learn More <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+        </a>
+      </div>
+
+      <!-- Image 2 - CPR Training -->
+      <div style="flex: 1; min-width: 300px; margin-top: 20px;">
+        <img 
+          src="https://media.tenor.com/iD7cRrUJWkUAAAAM/first-aid-red-cross.gif"
+          alt="CPR Training"
+          style="
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.7s ease, opacity 0.7s ease;
+          "
+          onload="this.style.opacity='1'; this.style.transform='translateY(0)';"
+          onmouseover="this.style.transform='scale(1.05)';"
+          onmouseout="this.style.transform='scale(1)';"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- SKILLS SECTION -->
+  <section class="skills-section">
+    <h2>My Skills</h2>
+    <p>Some intro text about your skills</p>
+
+    <div class="skills-container">
+      <!-- Skill Card: Programming Languages -->
+      <div class="skill-card">
+        <h2>Programming Languages</h2>
+        <ul>
+          <li>C</li>
+          <li>C++</li>
+          <li>Python</li>
+        </ul>
+      </div>
+
+      <!-- Skill Card: Data Science / ML -->
+      <div class="skill-card">
+        <h2>Data Science / ML</h2>
+        <ul>
+          <li>TensorFlow</li>
+          <li>Keras</li>
+          <li>Scikit-learn</li>
+          <li>Pandas</li>
+          <li>Matplotlib</li>
+        </ul>
+      </div>
+
+      <!-- Skill Card: Web Development -->
+      <div class="skill-card">
+        <h2>Web Development</h2>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+
+      <!-- Skill Card: Database -->
+      <div class="skill-card">
+        <h2>Database</h2>
+        <ul>
+          <li>MongoDB</li>
+        </ul>
+      </div>
+
+      <!-- Skill Card: Tools & Frameworks -->
+      <div class="skill-card">
+        <h2>Tools & Frameworks</h2>
+        <ul>
+          <li>LangChain</li>
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>Linux</li>
+        </ul>
+      </div>
+
+      <!-- Skill Card: General -->
+      <div class="skill-card">
+        <h2>General</h2>
+        <ul>
+          <li>Data Structures & Algorithms</li>
+          <li>OOPs with C++</li>
+          <li>REST APIs</li>
+        </ul>
+      </div>
+
+      <!-- Skill Card: SEO & Digital Marketing -->
+      <div class="skill-card">
+        <h2>SEO</h2>
+        <ul>
+          <li>Search Engine Optimization (SEO)</li>
+          <li>Keyword Research</li>
+          <li>On-Page & Off-Page Optimization</li>
+          <li>Technical SEO</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h2>Digital Marketing</h2>
+        <ul>
+          <li>Content Marketing</li>
+          <li>Link Building Strategies</li>
+          <li>Social Media Marketing (SMM)</li>
+          <li>Google Ads & PPC Campaigns</li>
+          <li>Email Marketing</li>
+          <li>Analytics & Performance Tracking</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+<!-- Cancer Initiative -->
+<section id="cancer-initiative">
+  <div class="container">
+    <h2>My Enthusiastic Interest in Health Care Projects</h2>
+    <div class="project cancer-section">
+      <h3>Cancer Initiative</h3>
+      <p>
+        This initiative is dedicated to advancing cancer research and improving patient care. 
+        It encompasses early detection strategies, community education, and innovative treatment research.
+      </p>
+      <img src="https://d35oenyzp35321.cloudfront.net/medium_introduction_to_cancer_1_37fa93bd5f.jpg" alt="Cancer Initiative Image" />
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER SECTION -->
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/nikhil-bharti-063b9a225/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/Nikhilbharti284" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61570853281295" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/ni.kh.il__18/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:nikhilbharti594@gmail.com" aria-label="Gmail">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Nikhil Bharti. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Fetch COVID-19 Data
+    async function fetchCovidData() {
+      try {
+        const response = await fetch('https://disease.sh/v3/covid-19/all');
+        const data = await response.json();
+        updateCovidData(data);
+      } catch (error) {
+        console.error('Error fetching COVID-19 data:', error);
+      }
+    }
+
+    function updateCovidData(data) {
+      // ... your existing logic ...
+    }
+
+    fetchCovidData();
+
+    // Character-by-Character Animation Function
+    function animateText(elementId, delay = 50) {
+      const element = document.getElementById(elementId);
+      const textContent = element.textContent;
+
+      // Clear the original text
+      element.textContent = '';
+
+      // Split text into an array of characters
+      const chars = [...textContent];
+
+      // Wrap each character in a <span>
+      chars.forEach(char => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        element.appendChild(span);
+      });
+
+      // Apply fade-in class one by one
+      let charIndex = 0;
+      const spans = element.querySelectorAll('span');
+
+      const timer = setInterval(() => {
+        spans[charIndex].classList.add('fade-in');
+        charIndex++;
+        if (charIndex === chars.length) {
+          clearInterval(timer);
+        }
+      }, delay);
+    }
+
+    // Wait for DOM to load, then animate heading & paragraph
+    document.addEventListener('DOMContentLoaded', () => {
+      animateText('animated-heading', 50);
+      animateText('animated-paragraph', 25);
+    });
+
+
+    
+  </script>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+
+</body>
+</html>

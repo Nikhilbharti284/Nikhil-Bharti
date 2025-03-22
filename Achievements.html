@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Academic Achievements</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+
+  <!-- Bootstrap CSS -->
+  <link 
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpe4KnXblWdS9N+xM6T7l1EjK7x1q8zZ/s44UfCqB7LWtC6a9"
+    crossorigin="anonymous"
+  />
+
+  <!-- Favicon (optional) -->
+  <link
+    rel="icon"
+    href="https://media.licdn.com/dms/image/v2/D5603AQEwVIcvRWodyQ/profile-displayphoto-shrink_100_100/B56ZOvGIdQGcAY-/0/1733809441995?e=1747872000&v=beta&t=0NxBCivydxjy1azEmrN8KTFoYbaGVScoYu_IUtiDO8k"
+    type="image/x-icon"
+  />
+
+  <style>
+    /* ==============================
+       Root Variables
+    ============================== */
+    :root {
+      --primary-color: #4b545d;
+      --secondary-color: #8d9c9c;
+      --text-dark: #333;
+      --text-light: #666;
+      --background-light: #f5f7fa;
+      --white: #fff;
+      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.15);
+      --border-radius: 8px;
+      --transition: all 0.3s ease;
+    }
+
+    /* ==============================
+       Global Styles
+    ============================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ==============================
+       Header & Hero Section
+    ============================== */
+    header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 60px; /* Extra space for hero content */
+      box-shadow: var(--shadow-sm);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMzUpIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .header-content h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-content p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #f0f0f0;
+    }
+
+    /* ==============================
+       NAVBAR STYLES
+    ============================== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      font-weight: 500;
+      padding: 8px 10px;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: var(--white);
+      transition: all 0.4s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .search-bar {
+      margin-left: 10px;
+    }
+
+    .search-bar input {
+      padding: 8px 15px;
+      border-radius: 50px;
+      border: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      width: 200px;
+      transition: var(--transition);
+    }
+
+    .search-bar input::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .hamburger {
+      display: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ==============================
+       Achievement Section
+    ============================== */
+    .achievement-section {
+      padding: 50px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    .achievement-info {
+      text-align: center;
+      margin-bottom: 40px;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .achievement-info:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .achievement-info h2 {
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .achievement-info p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .achievement-meta {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      margin: 0 15px;
+    }
+
+    .meta-item i {
+      margin-right: 5px;
+      color: var(--primary-color);
+    }
+
+    /* ==============================
+       Photo Gallery
+    ============================== */
+    .photos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .photo-item {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      background-color: var(--white);
+      position: relative;
+    }
+
+    .photo-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .photo-caption {
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* ==============================
+       Call to Action
+    ============================== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      padding: 50px 20px;
+      text-align: center;
+      color: var(--white);
+      margin-top: 50px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cta-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-section p {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--white);
+      color: var(--primary-color);
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ==============================
+       Footer
+    ============================== */
+    footer {
+      padding: 40px 20px;
+      background: var(--white);
+      border-top: 2px solid #e9ecef;
+      color: var(--text-light);
+      margin-top: 50px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-left {
+      margin-bottom: 20px;
+    }
+
+    .footer-left p {
+      margin: 5px 0;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--background-light);
+      color: var(--primary-color);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    /* ==============================
+       Responsive Media Queries
+    ============================== */
+    @media (max-width: 768px) {
+      header .header-content h1 {
+        font-size: 2.2rem;
+      }
+      .photos-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .social-links {
+        justify-content: center;
+        margin-top: 20px;
+      }
+      
+      /* Responsive Navbar */
+      .hamburger {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        right: -300px;
+        width: 250px;
+        height: 100vh;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 40px 20px;
+        transition: 0.5s;
+        z-index: 10;
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .search-bar {
+        margin: 20px 0;
+      }
+      
+      .search-bar input {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header .header-content h1 {
+        font-size: 1.8rem;
+      }
+      header .header-content p {
+        font-size: 0.9rem;
+      }
+      .achievement-info h2 {
+        font-size: 1.5rem;
+      }
+      .achievement-info p {
+        font-size: 0.9rem;
+      }
+      .photos-container {
+        grid-template-columns: 1fr;
+      }
+      .meta-item {
+        margin: 0 8px;
+      }
+      .achievement-meta {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header" id="home">
+    <nav class="navbar">
+      <h1 class="nav-logo">Nikhil Bharti</h1>
+      
+      <!-- Hamburger Menu -->
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="Achievements.html" class="active">Achievements</a>
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." aria-label="Search">
+        </div>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+    
+    <!-- Header Content -->
+    <div class="header-content">
+      <h1>Academic Achievements</h1>
+      <p>Showcasing some of my notable accomplishments and milestones.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section class="achievement-section">
+      <div class="section-title">
+        <h2>Notable Accomplishments</h2>
+      </div>
+
+      <!-- Single Achievement Info -->
+      <div class="achievement-info">
+        <h2>Model G20 Summit Champion</h2>
+        <p>
+          Winner of the National Level Model G20 Initiative hosted at IIT Hyderabad,
+          demonstrating exceptional diplomacy, policy analysis, and international
+          relations skills.
+        </p>
+        <div class="achievement-meta">
+          <div class="meta-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>March - April 2023</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>IIT Hyderabad</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-trophy"></i>
+            <span>National Champion</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photos Gallery -->
+      <div class="photos-container">
+        <div class="photo-item">
+          <img
+            src="https://scontent.fixc4-1.fna.fbcdn.net/v/t39.30808-6/481103649_1171338594780624_5063473708617030111_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=l33Tb4F1KtUQ7kNvgGZ5zsR&_nc_oc=Adk86YxoyFyNhrKiBRMKu8lDrCjvqPpL2_JX6EfVQdYzdL3nw31RWVX3Mx_lzpg7iml-1nvu6xDA3pHw9GChZr7w&_nc_zt=23&_nc_ht=scontent.fixc4-1.fna&_nc_gid=Bzql5rSkrW2q8g3ylDzDYQ&oh=00_AYGieAMrvCPxz8f0hghRHLadusKBCks6FgoA6gD49t8Z1A&oe=67E32B40"
+            alt="Model G20 event photo 1"
+          />
+          <div class="photo-caption">Award Cermony</div>
+        </div>
+        <div class="photo-item">
+          <img
+            src="https://scontent.fixc4-1.fna.fbcdn.net/v/t39.30808-6/480952263_1171338364780647_8482421844035115706_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Unwz1gkUyQEQ7kNvgHMN01z&_nc_oc=AdkLfnIgh4m8G18c0nGJErOVBSU_kdsY0VvGW8PAAQIYu02GlQ2CIt21DWgbR0QR1DCpg8zF8fbF3uh3yTYNNcJW&_nc_zt=23&_nc_ht=scontent.fixc4-1.fna&_nc_gid=Bzql5rSkrW2q8g3ylDzDYQ&oh=00_AYGU67rYB3a5jAVVO3hMTLS4Rs3Poax8wEFTuyO7ZOEVVA&oe=67E332F2"
+            alt="Model G20 event photo 2"
+          />
+          <div class="photo-caption">Winners of G2o</div>
+        </div>
+        <div class="photo-item">
+          <img
+            src="https://scontent.fixc4-1.fna.fbcdn.net/v/t39.30808-6/481776391_1171338574780626_3835238203975445620_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=SVbPE5YSjDEQ7kNvgErUr6p&_nc_oc=AdkxIMuLYjvAL0zWAZbPOBjJGwz0gnWTXRXPtva8LZFQraAgHJlu8EQA_zDi2dDlVpFP8AcSfcF6aUnsIPixoINm&_nc_zt=23&_nc_ht=scontent.fixc4-1.fna&_nc_gid=Bzql5rSkrW2q8g3ylDzDYQ&oh=00_AYGAWZG7xfYOK2_DcIr6bZXPJfeyGQQ_d-GYAYnPBPPHiA&oe=67E35094"
+            alt="Model G20 event photo 3"
+          />
+          <div class="photo-caption">Summit Presentation Session</div>
+        </div>
+        <div class="photo-item">
+          <img
+            src="https://scontent.fixc4-2.fna.fbcdn.net/v/t39.30808-6/481084047_1171338291447321_7208132036378727000_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=i5be7-PYZDwQ7kNvgHLAHt3&_nc_oc=AdkzL-G54kpUofm7BZEruvZQvvi2nOHt707QObmvZC_MgqSKSPEbWT53W4mOKz92tFmqtEjzV4DKId3ARlrNpPFG&_nc_zt=23&_nc_ht=scontent.fixc4-2.fna&_nc_gid=Bzql5rSkrW2q8g3ylDzDYQ&oh=00_AYGLVC4QR1d1FQCu87uLYJTtwEWz3BoZl8AxW6yHnw4j_g&oe=67E33AB0"
+            alt="Model G20 event photo 4"
+          />
+          <div class="photo-caption">Team</div>
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="cta-section">
+        <h3>Interested in My Other Achievements?</h3>
+        <p>
+          Explore my full portfolio of academic and professional accomplishments.
+          From research projects to leadership roles, discover how I've made an impact.
+        </p>
+        <a href="#" class="cta-button">View Full Portfolio</a>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/nikhil-bharti-063b9a225/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/Nikhilbharti284" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61570853281295" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/ni.kh.il__18/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:nikhilbharti594@gmail.com" aria-label="Gmail">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Nikhil Bharti. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Bootstrap JS and Custom Script -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+7h1fSvHjABIg8Z7Ho1Aw8hZP1pHl"
+    crossorigin="anonymous"
+  ></script>
+  
+  <!-- Custom JavaScript for hamburger menu functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      
+      hamburger.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        const isClickInside = navLinks.contains(event.target) || hamburger.contains(event.target);
+        
+        if (!isClickInside && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

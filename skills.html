@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>My Skills</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    /* Enhanced Responsive Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-logo {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-right: 1rem;
+    }
+
+    .hamburger {
+      cursor: pointer;
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+
+    .search-bar input {
+      width: 100%;
+      max-width: 200px;
+      padding: 0.5rem;
+      border-radius: 25px;
+      border: none;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .cta-button {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.804);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* SKILLS SECTION */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .skills-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+
+    .skill-card {
+      background: rgba(250, 249, 249, 0.948);
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-card h2 {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      color: #667eea;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-card ul {
+      list-style: none;
+    }
+
+    .skill-card li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: clamp(0.9rem, 1.8vw, 1rem);
+    }
+
+    .skill-card li:last-child {
+      border-bottom: none;
+    }
+
+    /* MOBILE NAVIGATION */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+        z-index: 1000;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(102, 126, 234, 0.98);
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .search-bar {
+        width: 100%;
+        margin: 1rem 0;
+      }
+
+      .search-bar input {
+        max-width: 100%;
+      }
+
+      .skills-section {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+    }
+
+    /* TABLET VIEWS */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .skills-section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: #667eea;
+      color: white;
+      border: none;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+      display: none;
+    }
+
+    #backToTop:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    /* FOOTER SECTION */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer .social-links {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .footer .social-links a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer .social-links a:hover {
+      color: #0077b5;
+    }
+
+    .footer .copyright {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header" id="home">
+    <nav class="navbar">
+      <h1 class="nav-logo">Nikhil Bharti</h1>
+      
+      <!-- Hamburger Menu -->
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="Achievements.html">Achievements</a>
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." aria-label="Search">
+        </div>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section class="skills-section">
+      <!-- Skill Card: Programming Languages -->
+      <div class="skill-card">
+        <h2>Programming Languages</h2>
+        <ul>
+          <li>C</li>
+          <li>C++</li>
+          <li>Python</li>
+        </ul>
+      </div>
+      <!-- Skill Card: Data Science / ML -->
+      <div class="skill-card">
+        <h2>Data Science / ML</h2>
+        <ul>
+          <li>TensorFlow</li>
+          <li>Keras</li>
+          <li>Scikit-learn</li>
+          <li>Pandas</li>
+          <li>Matplotlib</li>
+        </ul>
+      </div>
+      <!-- Skill Card: Web Development -->
+      <div class="skill-card">
+        <h2>Web Development</h2>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+      <!-- Skill Card: Database -->
+      <div class="skill-card">
+        <h2>Database</h2>
+        <ul>
+          <li>MongoDB</li>
+        </ul>
+      </div>
+      <!-- Skill Card: Tools & Frameworks -->
+      <div class="skill-card">
+        <h2>Tools & Frameworks</h2>
+        <ul>
+          <li>LangChain</li>
+          <li>Git</li>
+          <li>GitHub</li>
+          <li>Linux</li>
+        </ul>
+      </div>
+      <!-- Skill Card: General -->
+      <div class="skill-card">
+        <h2>General</h2>
+        <ul>
+          <li>Data Structures & Algorithms</li>
+          <li>OOPs with C++</li>
+          <li>REST APIs</li>
+        </ul>
+      </div>
+      <!-- Skill Card: SEO -->
+      <div class="skill-card">
+        <h2>SEO</h2>
+        <ul>
+          <li>Search Engine Optimization (SEO)</li>
+          <li>Keyword Research</li>
+          <li>On-Page & Off-Page Optimization</li>
+          <li>Technical SEO</li>
+        </ul>
+      </div>
+      <!-- Skill Card: Digital Marketing -->
+      <div class="skill-card">
+        <h2>Digital Marketing</h2>
+        <ul>
+          <li>Content Marketing</li>
+          <li>Link Building Strategies</li>
+          <li>Social Media Marketing (SMM)</li>
+          <li>Google Ads & PPC Campaigns</li>
+          <li>Email Marketing</li>
+          <li>Analytics & Performance Tracking</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <button id="backToTop" title="Back to top" aria-label="Back to top">↑</button>
+
+  <script>
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu on click outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/nikhil-bharti-063b9a225/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/Nikhilbharti284" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61570853281295" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://www.instagram.com/ni.kh.il__18/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:nikhilbharti594@gmail.com" aria-label="Gmail">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Nikhil Bharti. All rights reserved.
+    </p>
+  </footer>
+</body>
+</html>
